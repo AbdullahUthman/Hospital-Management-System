@@ -8,7 +8,6 @@ CREATE TABLE Patients(
     sex VARCHAR(5),
     contactNumber INT,
     address VARCHAR(255),
-    fees DOUBLE,
     PRIMARY KEY(patientID),
     CHECK (sex IN ("male", "female"))
 );
@@ -20,6 +19,7 @@ CREATE TABLE Doctors(
     availableFrom TIME,
     availableTo TIME,
     contactNumber INT,
+    fees DOUBLE,
     PRIMARY KEY(doctorID)
 );
 
