@@ -1,5 +1,5 @@
 public class Medicine {
-    private static int medicineID = 0;
+    private static int nextMedicineID = 1;
     private String medicineName;
     private String medicineType;
     private double price;
@@ -7,7 +7,7 @@ public class Medicine {
     private String isAvailable;
 
     public Medicine(String medicineName, String medicineType, double price, int qtyAvailable, String isAvailable) {
-        medicineID++;
+        medicineID = nextMedicineID++;
         this.medicineName = medicineName;
         this.medicineType = medicineType;
         this.price = price;
