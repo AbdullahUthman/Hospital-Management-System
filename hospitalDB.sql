@@ -19,7 +19,7 @@ CREATE TABLE Doctors(
     availableFrom TIME,
     availableTo TIME,
     contactNumber INT,
-    fees DOUBLE,
+    fee DOUBLE,
     PRIMARY KEY(doctorID)
 );
 
