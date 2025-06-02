@@ -4,10 +4,7 @@
  */
 package magicwindow;
 
-/**
- *
- * @author DELL
- */
+
 public class Main2 {
     public static void main(String[] args) {
            new LoginFrame();
