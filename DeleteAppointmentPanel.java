@@ -22,13 +22,13 @@ public class DeleteAppointmentPanel extends JPanel {
         title.setForeground(new Color(204, 0, 0));
         add(title, BorderLayout.NORTH);
 
-        // Table Panel
+    
         appointmentTable = new JTable(new DefaultTableModel(
                 new Object[]{"AppointmentID", "PatientID", "DoctorID", "Date", "Time Slot", "Disease", "Status"}, 0));
         JScrollPane scrollPane = new JScrollPane(appointmentTable);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Bottom Panel
+        
         JPanel bottomPanel = new JPanel(new GridBagLayout());
         bottomPanel.setBorder(BorderFactory.createTitledBorder("Delete by Appointment ID"));
         GridBagConstraints gbc = new GridBagConstraints();
@@ -58,7 +58,7 @@ public class DeleteAppointmentPanel extends JPanel {
 
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // Button Actions
+    
         viewButton.addActionListener(e -> loadAppointments());
         deleteButton.addActionListener(e -> deleteAppointment());
     }
