@@ -23,7 +23,7 @@ public class ViewAppointmentPanel extends JPanel {
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(titleLabel, BorderLayout.NORTH);
 
-        // Table model
+        
         model = new DefaultTableModel(new String[]{"Appointment ID", "Patient ID", "Doctor ID", "Time Slot", "Disease"}, 0);
         table = new JTable(model);
         table.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -52,7 +52,7 @@ public class ViewAppointmentPanel extends JPanel {
     }
 
     private void loadAppointments() {
-        model.setRowCount(0); // Clear previous data
+        model.setRowCount(0); 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection conn = DBManager.getConnection(); Statement stmt = conn.createStatement()) {
