@@ -29,14 +29,14 @@ public class EditAppointmentPanel extends JPanel {
 
         gbc.gridwidth = 1;
 
-        // Appointment ID
+    
         gbc.gridy++;
         add(new JLabel("Appointment ID:"), gbc);
         appointmentIdField = new JTextField(15);
         gbc.gridx = 1;
         add(appointmentIdField, gbc);
 
-        // Appointment Date
+        
         gbc.gridx = 0;
         gbc.gridy++;
         add(new JLabel("New Appointment Date (YYYY-MM-DD):"), gbc);
@@ -44,7 +44,7 @@ public class EditAppointmentPanel extends JPanel {
         gbc.gridx = 1;
         add(dateField, gbc);
 
-        // Time Slot
+
         gbc.gridx = 0;
         gbc.gridy++;
         add(new JLabel("New Time Slot (HH:MM:SS):"), gbc);
@@ -52,7 +52,7 @@ public class EditAppointmentPanel extends JPanel {
         gbc.gridx = 1;
         add(timeField, gbc);
 
-        // Button
+    
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.gridwidth = 2;
@@ -81,7 +81,7 @@ public class EditAppointmentPanel extends JPanel {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try (Connection conn = DBManager.getConnection()) {
-                // Check if appointment exists
+                
                 String checkSql = "SELECT * FROM appointments WHERE AppointmentID = ?";
                 PreparedStatement checkStmt = conn.prepareStatement(checkSql);
                 checkStmt.setInt(1, Integer.parseInt(aid));
