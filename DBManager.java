@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package magicwindow;
 
 
@@ -26,14 +23,14 @@ public class DBManager {
         return null;
     }
 
-    // Optional close method if you manually close connections elsewhere
+    
     public static void closeConnection(Connection conn) {
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
             }
         } catch (SQLException e) {
-            System.err.println("❌ Failed to close connection: " + e.getMessage());
+            System.err.println("Failed to close connection: " + e.getMessage());
         }
     }
 }
