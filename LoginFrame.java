@@ -119,7 +119,7 @@ public class LoginFrame extends JFrame {
         DBManager.closeConnection(conn);
 
     } catch (SQLException e) {
-        JOptionPane.showMessageDialog(this, "❌ DB Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "DB Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
 
