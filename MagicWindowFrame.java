@@ -62,19 +62,18 @@ public class MagicWindowFrame extends JFrame {
     public MagicWindowFrame() {
         setTitle("Hospital Management System");
 
-        // Make fullscreen
+
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setUndecorated(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Title Header
         JLabel titleLabel = new JLabel("Hospital Management System", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
         add(titleLabel, BorderLayout.NORTH);
 
-        // Navbar with module toggle buttons
+    
         JPanel navbar = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         String[] modules = {"Patient Module", "Appointment Module", "Billing System", "Admin Panel"};
 
@@ -86,17 +85,17 @@ public class MagicWindowFrame extends JFrame {
         }
         add(navbar, BorderLayout.BEFORE_FIRST_LINE);
 
-        // Sidebar on the left
+        
         sidebar.setLayout(new BoxLayout(sidebar, BoxLayout.Y_AXIS));
         sidebar.setBorder(BorderFactory.createTitledBorder("Module Options"));
         sidebar.setPreferredSize(new Dimension(250, getHeight()));
         add(sidebar, BorderLayout.WEST);
 
-        // Content Panel in the center
+        
         contentPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         contentPanel.add(centerLabel("Welcome to Hospital Management System"), "Home");
 
-        // Add sample panels
+
         contentPanel.add(new view.BookAppointmentPanel(), "Book Appointment");
         contentPanel.add(new view.ViewAppointmentPanel(), "View Appointment");
         contentPanel.add(new view.EditAppointmentPanel(), "Edit Appointment");
@@ -104,19 +103,17 @@ public class MagicWindowFrame extends JFrame {
 
         add(contentPanel, BorderLayout.CENTER);
 
-        // Sidebar options configuration
+        
         moduleSidebarItems.put("Appointment Module", new String[]{
                 "Book Appointment", "View Appointment", "Edit Appointment", "Delete Appointment"
         });
 
-        // You can add more like:
-        // moduleSidebarItems.put("Patient Module", new String[]{...});
-        // moduleSidebarItems.put("Billing System", new String[]{...});
+        
 
         setVisible(true);
     }
 
-    // Updates sidebar buttons for the selected module
+    
     private void updateSidebar(String module) {
         sidebar.removeAll();
         String[] items = moduleSidebarItems.getOrDefault(module, new String[]{"No options available"});
@@ -126,14 +123,14 @@ public class MagicWindowFrame extends JFrame {
             itemBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
             itemBtn.setMaximumSize(new Dimension(200, 40));
             itemBtn.addActionListener(e -> cardLayout.show(contentPanel, item));
-            sidebar.add(Box.createVerticalStrut(10)); // spacing
+            sidebar.add(Box.createVerticalStrut(10)); 
             sidebar.add(itemBtn);
         }
         sidebar.revalidate();
         sidebar.repaint();
     }
 
-    // Utility to create centered label
+    
     private JPanel centerLabel(String text) {
         JLabel label = new JLabel(text, SwingConstants.CENTER);
         label.setFont(new Font("Segoe UI", Font.PLAIN, 20));
