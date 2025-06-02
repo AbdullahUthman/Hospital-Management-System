@@ -18,11 +18,11 @@ public class LoginFrame extends JFrame {
     private JComboBox<String> roleComboBox;
 
     public LoginFrame() {
-        // Apply FlatLaf look and feel
+        
         FlatLightLaf.setup();
 
         setTitle("Hospital Login");
-        setExtendedState(JFrame.MAXIMIZED_BOTH); // Fullscreen
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -30,7 +30,7 @@ public class LoginFrame extends JFrame {
 
 
         
-        // Main panel
+        
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBackground(Color.WHITE);
         add(mainPanel, BorderLayout.CENTER);
@@ -39,7 +39,7 @@ public class LoginFrame extends JFrame {
         gbc.insets = new Insets(15, 15, 15, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Title
+        
         JLabel titleLabel = new JLabel("Hospital Management System", JLabel.CENTER);
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 32));
         titleLabel.setForeground(new Color(50, 50, 150));
@@ -48,14 +48,14 @@ public class LoginFrame extends JFrame {
         gbc.gridwidth = 2;
         mainPanel.add(titleLabel, gbc);
 
-        // Role ComboBox
+    
         gbc.gridy++;
         gbc.gridwidth = 2;
         roleComboBox = new JComboBox<>(new String[]{"Admin", "Doctor", "Patient"});
         roleComboBox.setFont(new Font("SansSerif", Font.PLAIN, 18));
         mainPanel.add(roleComboBox, gbc);
  
-        // Username
+        
         gbc.gridy++;
         gbc.gridwidth = 1;
         mainPanel.add(new JLabel("Username:", JLabel.RIGHT), gbc);
@@ -64,7 +64,7 @@ public class LoginFrame extends JFrame {
         usernameField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         mainPanel.add(usernameField, gbc);
 
-        // Password
+        
         gbc.gridy++;
         gbc.gridx = 0;
         mainPanel.add(new JLabel("Password:", JLabel.RIGHT), gbc);
@@ -73,7 +73,7 @@ public class LoginFrame extends JFrame {
         passwordField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         mainPanel.add(passwordField, gbc);
 
-        // Login button
+        
         gbc.gridy++;
         gbc.gridx = 0;
         gbc.gridwidth = 2;
@@ -89,7 +89,7 @@ public class LoginFrame extends JFrame {
     private void handleLogin() {
     String username = usernameField.getText();
     String password = new String(passwordField.getPassword());
-    String role = (String) roleComboBox.getSelectedItem();  // Get selected role from dropdown
+    String role = (String) roleComboBox.getSelectedItem();  
 
     Connection conn = DBManager.getConnection();
     if (conn == null) {
@@ -106,11 +106,11 @@ public class LoginFrame extends JFrame {
 
         ResultSet rs = stmt.executeQuery();
        if (rs.next()) {
-    // Open main HMS window directly
-    new MagicWindowFrame(); // Or pass parameters if needed
-    this.dispose(); // Close login window
+    
+    new MagicWindowFrame(); 
+    this.dispose(); 
 } else {
-    JOptionPane.showMessageDialog(this, "❌ Invalid username, password, or role!", "Login Failed", JOptionPane.ERROR_MESSAGE);
+    JOptionPane.showMessageDialog(this, "Invalid username, password, or role!", "Login Failed", JOptionPane.ERROR_MESSAGE);
 }
 
 
